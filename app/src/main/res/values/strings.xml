@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bake To Deliver</string>
+    <string name="action_settings">Settings</string>
+    <string name="Price_Input_Hint">Price $$</string>
+    <string name="Baker_Name_Input_Hint">Baker\'s Name</string>
+    <string name="Food_Name_Input_Hint">Food Name</string>
+    <string name="Welcome_Message">Welcome to Bake to Deliver!</string>
+</resources>
