@@ -31,6 +31,7 @@
                   android:hint="@string/Price_Input_Hint" android:inputType="numberDecimal"
                   android:autofillHints="Your Price"
                   android:id="@+id/priceInput"/>
+        <Button android:text="@string/submitButtonText" android:id="@+id/submitButton" android:onClick="submitBakedGood"/>
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

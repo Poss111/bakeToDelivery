@@ -5,4 +5,8 @@
     <string name="Baker_Name_Input_Hint">Baker\'s Name</string>
     <string name="Food_Name_Input_Hint">Food Name</string>
     <string name="Welcome_Message">Welcome to Bake to Deliver!</string>
+    <string name="submitButtonText">Submit</string>
+    <string name="title_activity_baked_items">Baked Goods</string>
+    <string name="titlePlaceholder">Placeholder</string>
+    <string name="food_value_hint">Food Value</string>
 </resources>
