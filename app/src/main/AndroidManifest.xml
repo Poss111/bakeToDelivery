@@ -10,16 +10,16 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".BakedItemsActivity"
+                android:name=".activities.BakedItemsActivity"
                 android:label="@string/title_activity_baked_items"
-                android:parentActivityName=".MainActivity"
+                android:parentActivityName=".activities.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.example.baketodeliver.MainActivity"/>
+                    android:value="com.example.baketodeliver.activities.MainActivity"/>
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

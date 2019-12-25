@@ -7,31 +7,48 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_main"
-        tools:context=".MainActivity">
+        tools:context=".activities.MainActivity">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:text="@string/Welcome_Message" app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-              android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:id="@+id/welcomeMessage"/>
+              android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+              android:id="@+id/welcomeMessage"/>
 
-    <TableLayout android:layout_width="match_parent" android:layout_height="628dp"
-                 app:layout_constraintStart_toStartOf="parent"
-                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                 android:layout_marginEnd="8dp" app:layout_constraintTop_toBottomOf="@+id/welcomeMessage">
-        <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:hint="@string/Food_Name_Input_Hint"
-                  android:inputType="text"
-                  android:autofillHints="Your Creation's Name"
-                  android:id="@+id/foodInput"/>
-        <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:hint="@string/Baker_Name_Input_Hint" android:inputType="text"
-                  android:autofillHints="Your Name"
-                  android:id="@+id/bakerInput"/>
-        <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:hint="@string/Price_Input_Hint" android:inputType="numberDecimal"
-                  android:autofillHints="Your Price"
-                  android:id="@+id/priceInput"/>
-        <Button android:text="@string/submitButtonText" android:id="@+id/submitButton" android:onClick="submitBakedGood"/>
-    </TableLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           app:errorEnabled="true"
+                                                           app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+                                                           android:id="@+id/foodInputTextLayout">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/foodInput"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:hint="Your Creation's Name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           app:errorEnabled="true"
+                                                           app:layout_constraintTop_toBottomOf="@+id/foodInputTextLayout"
+                                                           android:id="@+id/bakerInputTextLayout">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bakerInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Your Name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           app:errorEnabled="true"
+                                                           app:layout_constraintTop_toBottomOf="@+id/bakerInputTextLayout"
+                                                           android:id="@+id/priceInputTextLayout">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/priceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Your Price $"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button android:layout_width="match_parent" android:layout_height="0dp" android:text="Submit"
+            tools:layout_editor_absoluteY="195dp" app:layout_constraintTop_toBottomOf="@+id/priceInputTextLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

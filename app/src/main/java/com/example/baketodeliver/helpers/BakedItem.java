@@ -1,5 +1,8 @@
 package com.example.baketodeliver.helpers;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
 /**
@@ -7,7 +10,7 @@ import java.util.Objects;
  *
  * @author Daniel Poss
  */
-public class BakedItem {
+public class BakedItem implements Parcelable {
 
     private String bakerName;
     private String foodName;
@@ -18,6 +21,45 @@ public class BakedItem {
         this.foodName = foodName;
         this.price = price;
     }
+
+    protected BakedItem(Parcel in) {
+        bakerName = in.readString();
+        foodName = in.readString();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(bakerName);
+        dest.writeString(foodName);
+        if (price == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(price);
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<BakedItem> CREATOR = new Creator<BakedItem>() {
+        @Override
+        public BakedItem createFromParcel(Parcel in) {
+            return new BakedItem(in);
+        }
+
+        @Override
+        public BakedItem[] newArray(int size) {
+            return new BakedItem[size];
+        }
+    };
 
     public String getBakerName() {
         return bakerName;
