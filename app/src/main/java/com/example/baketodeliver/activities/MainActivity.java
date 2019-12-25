@@ -3,7 +3,11 @@ package com.example.baketodeliver.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.baketodeliver.R;
@@ -11,25 +15,20 @@ import com.example.baketodeliver.helpers.BakedItem;
 import com.example.baketodeliver.utils.SharedContextUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getCanonicalName();
 
-//    @BindView(R.id.bakerInput)
-//    TextInputEditText bakerInput;
+    @BindView(R.id.bakerInput)
+    TextInputEditText bakerInput;
 
     @BindView(R.id.foodInput)
     TextInputEditText foodInput;
 
-//    @BindView(R.id.priceInput)
-//    TextInputEditText priceInput;
+    @BindView(R.id.priceInput)
+    TextInputEditText priceInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
     public void submitBakedGood(View view) {
         Log.i(TAG, "Submitting text field");
 
-//        BakedItem bakedItem = new BakedItem(bakerInput.getText().toString(),
-//                foodInput.getText().toString(),
-//                Double.valueOf(priceInput.getText().toString()));
+        BakedItem bakedItem = new BakedItem(bakerInput.getText().toString(),
+                foodInput.getText().toString(),
+                Double.valueOf(priceInput.getText().toString()));
 
-//        Log.i(TAG, "Created Baker Item :: " + bakedItem);
+        Log.i(TAG, "Created Baker Item :: " + bakedItem);
         Intent intent = new Intent(this, BakedItemsActivity.class);
 //        Bundle bundle = new Bundle();
 //        bundle.putParcelable(getString(R.string.bakedGoodItem), bakedItem);
 //        intent.putExtras(bundle);
-//        SharedContextUtils.putObjectToMap(getString(R.string.bakedGoodItem), bakedItem);
-//        Log.i(TAG, "Navigating to Baked Items Activity with Baked Item ('" + bakedItem + "')...");
+        SharedContextUtils.putObjectToMap(getString(R.string.bakedGoodItem), bakedItem);
+        Log.i(TAG, "Navigating to Baked Items Activity with Baked Item ('" + bakedItem + "')...");
         startActivity(intent);
     }
 
