@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".activities.BakedItemsActivity">
+        tools:context="com.poss.baketodeliver.activities.BakedItemsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
@@ -34,15 +34,15 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_baked_items"/>
+    <include android:id="@+id/main_content" layout="@layout/content_baked_items"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            app:layout_anchor="@id/app_bar"
+            app:layout_anchor="@id/main_content"
             app:layout_anchorGravity="bottom|end"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+            app:srcCompat="@android:drawable/ic_menu_search"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

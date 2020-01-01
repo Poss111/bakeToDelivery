@@ -7,7 +7,7 @@
         tools:showIn="@layout/activity_baked_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.BakedItemsActivity"
+        tools:context="com.poss.baketodeliver.activities.BakedItemsActivity"
         android:id="@+id/nestedScrollView">
 
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/bakedItemListRecyclerView"

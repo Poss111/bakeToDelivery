@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.baketodeliver">
+          package="com.poss.baketodeliver">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
             android:allowBackup="true"
@@ -10,16 +15,16 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".activities.BakedItemsActivity"
+                android:name="com.poss.baketodeliver.activities.BakedItemsActivity"
                 android:label="@string/title_activity_baked_items"
-                android:parentActivityName=".activities.MainActivity"
+                android:parentActivityName="com.poss.baketodeliver.activities.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.example.baketodeliver.activities.MainActivity"/>
+                    android:value="com.poss.baketodeliver.activities.MainActivity"/>
         </activity>
         <activity
-                android:name=".activities.MainActivity"
+                android:name="com.poss.baketodeliver.activities.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

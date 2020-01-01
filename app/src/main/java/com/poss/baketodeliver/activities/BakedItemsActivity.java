@@ -1,18 +1,18 @@
-package com.example.baketodeliver.activities;
+package com.poss.baketodeliver.activities;
 
 import android.os.Bundle;
 import android.util.Log;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.example.baketodeliver.R;
-import com.example.baketodeliver.adapters.BakedItemAdapter;
-import com.example.baketodeliver.helpers.BakedItem;
-import com.example.baketodeliver.utils.SharedContextUtils;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.poss.baketodeliver.R;
+import com.poss.baketodeliver.adapters.BakedItemAdapter;
+import com.poss.baketodeliver.helpers.BakedItem;
+import com.poss.baketodeliver.utils.SharedContextUtils;
 
 import java.util.ArrayList;
 import java.util.List;

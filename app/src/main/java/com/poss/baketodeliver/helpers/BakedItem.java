@@ -1,4 +1,4 @@
-package com.example.baketodeliver.helpers;
+package com.poss.baketodeliver.helpers;
 
 import android.os.Parcel;
 import android.os.Parcelable;

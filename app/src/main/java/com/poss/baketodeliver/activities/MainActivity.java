@@ -1,6 +1,8 @@
-package com.example.baketodeliver.activities;
+package com.poss.baketodeliver.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,12 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.example.baketodeliver.R;
-import com.example.baketodeliver.helpers.BakedItem;
-import com.example.baketodeliver.utils.SharedContextUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.poss.baketodeliver.R;
+import com.poss.baketodeliver.helpers.BakedItem;
+import com.poss.baketodeliver.utils.SharedContextUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+
+        if (sharedPreferences.getBoolean("userLoggedIn", false)) {
+            Intent intent = new Intent(this, BakeToDeliveryLoginActivity.class);
+            startActivity(intent);
+        }
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

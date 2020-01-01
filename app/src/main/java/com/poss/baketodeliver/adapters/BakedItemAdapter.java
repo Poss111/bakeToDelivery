@@ -1,15 +1,14 @@
-package com.example.baketodeliver.adapters;
+package com.poss.baketodeliver.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.baketodeliver.R;
-import com.example.baketodeliver.helpers.BakedItem;
-import com.example.baketodeliver.holders.BakedItemHolder;
+import com.poss.baketodeliver.R;
+import com.poss.baketodeliver.helpers.BakedItem;
+import com.poss.baketodeliver.holders.BakedItemHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BakedItemAdapter extends RecyclerView.Adapter {

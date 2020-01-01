@@ -1,11 +1,11 @@
-package com.example.baketodeliver.holders;
+package com.poss.baketodeliver.holders;
 
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.baketodeliver.R;
-import com.example.baketodeliver.helpers.BakedItem;
+import com.poss.baketodeliver.R;
+import com.poss.baketodeliver.helpers.BakedItem;
 
 import java.text.NumberFormat;
 
