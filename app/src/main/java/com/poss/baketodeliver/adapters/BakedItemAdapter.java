@@ -34,6 +34,9 @@ public class BakedItemAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
+        if (bakedItemList == null) {
+            return 0;
+        }
         return bakedItemList.size();
     }
 

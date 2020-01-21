@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(view.getContext(), BakedItemsActivity.class);
+//                SharedContextUtils.putObjectToMap(getString(R.string.bakedGoodItem), bakedItem);
+//                Log.i(TAG, "Navigating to Baked Items Activity with Baked Item ('" + bakedItem + "')...");
+                startActivity(intent);
             }
         });
         Log.d(TAG, "Created MainActivity...");
