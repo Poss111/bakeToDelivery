@@ -8,16 +8,24 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.poss.baketodeliver.R;
 import com.poss.baketodeliver.helpers.BakedItem;
 import com.poss.baketodeliver.utils.SharedContextUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,11 +84,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitBakedGood(View view) {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+        Map<String, Object> bakedItemMap = new HashMap<>();
         Log.i(TAG, "Submitting text field");
 
         BakedItem bakedItem = new BakedItem(bakerInput.getText().toString(),
                 foodInput.getText().toString(),
                 Double.valueOf(priceInput.getText().toString()));
+
+        bakedItemMap.put("bakerName", bakerInput.getText().toString());
+        bakedItemMap.put("goodsName", foodInput.getText().toString());
+        bakedItemMap.put("price", Double.valueOf(priceInput.getText().toString()));
+
+        firebaseFirestore.collection(getString(R.string.bakedGoodsFBCollectionKey))
+                .add(bakedItemMap)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "Successfully added Baked Item to Firestore: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "Failed to add Baked Item to Firestore", e);
+                    }
+                });
 
         Log.i(TAG, "Created Baker Item :: " + bakedItem);
         Intent intent = new Intent(this, BakedItemsActivity.class);

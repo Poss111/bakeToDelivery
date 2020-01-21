@@ -12,6 +12,7 @@ import com.poss.baketodeliver.holders.BakedItemHolder;
 import java.util.List;
 
 public class BakedItemAdapter extends RecyclerView.Adapter {
+//        implements EventListener<QuerySnapshot> {
 
     private List<BakedItem> bakedItemList;
 
@@ -40,5 +41,10 @@ public class BakedItemAdapter extends RecyclerView.Adapter {
     public int getItemViewType(final int position) {
         return R.layout.baked_item_card_layout;
     }
+
+//    @Override
+//    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+//        Log.i(this.getClass().getName(), "Event has occurred during Firebase Listener...");
+//    }
 
 }

@@ -12,9 +12,13 @@ import java.util.Objects;
  */
 public class BakedItem implements Parcelable {
 
+    private String firestoreId;
     private String bakerName;
     private String foodName;
     private Double price;
+
+    public BakedItem() {
+    }
 
     public BakedItem(String bakerName, String foodName, Double price) {
         this.bakerName = bakerName;
@@ -85,28 +89,37 @@ public class BakedItem implements Parcelable {
         this.price = price;
     }
 
+    public String getFirestoreId() {
+        return firestoreId;
+    }
+
+    public void setFirestoreId(String firestoreId) {
+        this.firestoreId = firestoreId;
+    }
+
+    @Override
+    public String toString() {
+        return "BakedItem{" +
+                "firestoreId='" + firestoreId + '\'' +
+                ", bakerName='" + bakerName + '\'' +
+                ", foodName='" + foodName + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BakedItem bakedItem = (BakedItem) o;
-        return Objects.equals(bakerName, bakedItem.bakerName) &&
+        return Objects.equals(firestoreId, bakedItem.firestoreId) &&
+                Objects.equals(bakerName, bakedItem.bakerName) &&
                 Objects.equals(foodName, bakedItem.foodName) &&
                 Objects.equals(price, bakedItem.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bakerName, foodName, price);
+        return Objects.hash(firestoreId, bakerName, foodName, price);
     }
-
-    @Override
-    public String toString() {
-        return "BakedItem{" +
-                "bakerName='" + bakerName + '\'' +
-                ", foodName='" + foodName + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
 }
